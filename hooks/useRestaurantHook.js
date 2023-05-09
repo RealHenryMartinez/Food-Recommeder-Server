@@ -11,7 +11,9 @@ const handleOptions = (url) => {
   }
   return options
 }
-const categoryOption = handleOptions('https://api.yelp.com/v3/categories/food')
-const restaurantOption = handleOptions(
-  'https://api.yelp.com/v3/businesses/search?latitude=37.786882&longitude=-122.399972&limit=15',
+//const categoryOptions = handleOptions('https://api.yelp.com/v3/categories/food')
+const restaurantOptions = handleOptions(
+  'https://api.yelp.com/v3/businesses/search?latitude=37.786882&longitude=-122.399972&limit=5',
 )
+
+module.exports = {restaurantOptions}

@@ -5,21 +5,23 @@ require('dotenv').config()
 const express = require('express')
 const restaurantRouter = express.Router()
 const app = express()
+const request = require('request');
 const bodyParser = require('body-parser')
+const {  restaurantOptions} = require('../hooks/useRestaurantHook')
 
 app.use(bodyParser.json())
 
 restaurantRouter.get('/getRestaurants', (req, res) => {
-  request(restaurantOption, function (error, response, body) {
+  request(restaurantOptions, function (error, response, body) {
     console.log(response.body)
     res.status(200).send(response.body)
   })
 })
-restaurantRouter.get('/getCategories', function (req, res) {
-  request(categoryOption, function (error, response, body) {
-    console.log(response.body)
-    res.status(200).send(response.body)
-  })
-})
+// restaurantRouter.get('/getCategories', function (req, res) {
+//   request(categoryOptions, function (error, response, body) {
+//     console.log(response.body)
+//     res.status(200).send(response.body)
+//   })
+// })
 
 module.exports = restaurantRouter;
